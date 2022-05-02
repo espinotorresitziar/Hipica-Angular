@@ -1,0 +1,25 @@
+<h2>{{ nivel.tipoNivel | uppercase }} Detalles</h2>
+  <div><span>ID: </span>{{ nivel._id }}</div>
+  <div>
+    <label
+      >Nivel:
+      <input [(ngModel)]="nivel._tipoNivel" placeholder="nivel" />
+    </label>
+    <br>
+    <label
+      >Aficionado:
+      <input [(ngModel)]="nivel._aficionado" placeholder="aficionado" type="checkbox" />
+    </label>
+    <br>
+    <label
+      >Edad Límite:
+      <input [(ngModel)]="nivel._limiteEdad" placeholder="limiteEdad" type="number" />
+    </label>
+    <br>
+    <label
+      >Inscripción:
+      <input [(ngModel)]="nivel._inscripcion" placeholder="inscripcion" type="number" />
+    </label>
+  </div>
+  <button (click)="goBack()">Atrás</button>
+  <button (click)="save()">Save</button>

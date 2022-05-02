@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{"Nuevo participante"}}</h3>
+                    <span *ngIf="submitted && crearParticipante.invalid" class="badge badge-danger">Debe introducir todos
+                        los campos</span>
+                    <form [formGroup]="crearParticipante" (ngSubmit)="addParticipante()">
+                        <div class="row">
+                            <input type="number" formControlName="id" class="mt-2 form-control form-control-lg"
+                                placeholder="ID">
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="nombre" class="form-control form-control-lg mt-3"
+                                placeholder="Nombre"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="number" formControlName="edad"
+                                    class="form-control form-control-lg mt-3" placeholder="Edad"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="nacionalidad"
+                                    class="form-control form-control-lg mt-3" placeholder="Nacionalidad"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="nivel"
+                                    class="form-control form-control-lg mt-3" placeholder="Nivel"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="modalidad"
+                                    class="form-control form-control-lg mt-3" placeholder="Modalidad"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="nomCaballo"
+                                    class="form-control form-control-lg mt-3" placeholder="Nombre Caballo"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="raza"
+                                    class="form-control form-control-lg mt-3" placeholder="Raza"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="number" formControlName="edadCaballo"
+                                    class="form-control form-control-lg mt-3" placeholder="Edad Caballo"></div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <p>Caballo Estabulado <input type="checkbox" formControlName="cabEstabulado">
+                            </p>
+                        </div>
+                        <div class="mt-3">
+
+                            <button type="submit" class="btn btn-dark btn-lg">Añadir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{"Nuevo nivel"}}</h3>
+                    <span *ngIf="submitted && crearNivel.invalid" class="badge badge-danger">Por favor, ingrese todos
+                        los campos</span>
+                    <form [formGroup]="crearNivel" (ngSubmit)="addNivel()">
+                        <div class="row">
+                            <input type="number" formControlName="id" class="mt-2 form-control form-control-lg"
+                                placeholder="ID">
+                        </div>
+                        <div class="row">
+                            <input type="text" formControlName="tipoNivel" class="form-control form-control-lg mt-3"
+                                placeholder="Tipo Nivel">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <p>Aficionado <input type="checkbox" formControlName="aficionado">
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="number" formControlName="limiteEdad"
+                                    class="form-control form-control-lg mt-3" placeholder="Edad Límite"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="number" formControlName="inscripcion"
+                                    class="form-control form-control-lg mt-3" placeholder="Inscripción"></div>
+                        </div>
+                        <div class="mt-3">
+
+                            <button type="submit" class="btn btn-dark btn-lg">Añadir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

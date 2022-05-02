@@ -1,0 +1,36 @@
+<br><br>
+
+<div class="container mt-4">
+	<div class="card">
+	  <div class="card-body">
+		<span class="h3">Niveles</span>
+		
+		<table class="table table-striped mt-5">
+		  <thead>
+			<tr>
+				<th>ID</th>
+				<th>TIPO</th>
+				<th>AFICIONADO</th>
+				<th>EDAD LIMITE</th>
+				<th>INSCRIPCION</th>
+			  <th></th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let nivel of niveles">
+			  <td>{{ nivel._id }}</td>
+			  <td>{{nivel._tipoNivel }}</td>
+			  <td>{{ nivel._aficionado }}</td>
+			  <td>{{ nivel._limiteEdad }}</td>
+			  <td>{{ nivel._inscripcion }}</td>
+			  <td>
+				<button class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/niveles/{{nivel.tipoNivel}}']">Ver</button>
+				
+				<button (click)="eliminarNivel(nivel.tipoNivel)" class="fas fa-trash-alt fa-lg text-danger">Eliminar</button>
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </div>

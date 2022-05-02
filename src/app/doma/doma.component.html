@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>{{"Nuevo participante de Doma"}}</h3>
+                    <span *ngIf="submitted && crearDoma.invalid" class="badge badge-danger">Debe introducir todos
+                        los campos</span>
+                    <form [formGroup]="crearDoma" (ngSubmit)="addParticipante()">
+                        <div class="row">
+                            <input type="number" formControlName="id" class="mt-2 form-control form-control-lg"
+                                placeholder="ID">
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="nombre" class="form-control form-control-lg mt-3"
+                                placeholder="Nombre"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="number" formControlName="edad"
+                                    class="form-control form-control-lg mt-3" placeholder="Edad"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="nacionalidad"
+                                    class="form-control form-control-lg mt-3" placeholder="Nacionalidad"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="nivel"
+                                    class="form-control form-control-lg mt-3" placeholder="Nivel"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="modalidad"
+                                    class="form-control form-control-lg mt-3" placeholder="Modalidad"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="nomCaballo"
+                                    class="form-control form-control-lg mt-3" placeholder="Nombre Caballo"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" formControlName="raza"
+                                    class="form-control form-control-lg mt-3" placeholder="Raza"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="number" formControlName="edadCaballo"
+                                    class="form-control form-control-lg mt-3" placeholder="Edad Caballo"></div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <p>Caballo Estabulado <input type="checkbox" formControlName="cabEstabulado">
+                            </p>
+                        </div>
+                        <p>Puntos</p>
+                        <div class="row">
+                            <div class="col">
+                                <input type="number" formControlName="parada" class="form-control form-control-lg mt-3" placeholder="Parada">
+                            </div> 
+                            <div class="col">
+                                <input type="number" formControlName="paso" class="form-control form-control-lg mt-3" placeholder="Paso">
+                            </div>
+                            <div class="col">
+                                <input type="number" formControlName="trote" class="form-control form-control-lg mt-3" placeholder="Trote">
+                            </div>
+                            <div class="col">
+                                <input type="number" formControlName="galope" class="form-control form-control-lg mt-3" placeholder="Galope">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="number" formControlName="pasoAtras" class="form-control form-control-lg mt-3" placeholder="Paso Atrás">
+                            </div>
+                            <div class="col">
+                                <input type="number" formControlName="transiciones" class="form-control form-control-lg mt-3" placeholder="Transiciones">
+                            </div>
+                            <div class="col">
+                                <input type="number" formControlName="galope" class="form-control form-control-lg mt-3" placeholder="Galope">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="number" formControlName="pasoAtras" class="form-control form-control-lg mt-3" placeholder="Paso Atrás">
+                            </div>
+                            <div class="col">
+                                <input type="number" formControlName="transiciones" class="form-control form-control-lg mt-3" placeholder="Transiciones">
+                            </div>
+                            <div class="col">
+                                <input type="number" formControlName="cambioDirec" class="form-control form-control-lg mt-3" placeholder="Cambio Dirección">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="number" formControlName="figuras" class="form-control form-control-lg mt-3" placeholder="Figuras">
+                            </div>
+                            <div class="col">
+                                <input type="number" formControlName="movLateral" class="form-control form-control-lg mt-3" placeholder="Movimiento Lateral">
+                            </div>
+                            <div class="col">
+                                <input type="number" formControlName="piruetas" class="form-control form-control-lg mt-3" placeholder="Piruetas">
+                            </div>
+                        </div>
+                        <div class="mt-3">
+
+                            <button type="submit" class="btn btn-dark btn-lg">Añadir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

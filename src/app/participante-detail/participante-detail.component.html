@@ -1,0 +1,45 @@
+<h2>{{ participante.nombre | uppercase }} Detalles</h2>
+  <div><span>ID: </span>{{ participante._id }}</div>
+  <div>
+    <label
+      >Nombre:
+      <input [(ngModel)]="participante._nombre" placeholder="nombre" />
+    </label>
+    <br>
+    <label
+      >Edad:
+      <input [(ngModel)]="participante._edad" placeholder="edad" type="number" />
+    </label>
+    <br>
+    <label
+      >Nacionalidad:
+      <input [(ngModel)]="participante._nacionalidad" placeholder="nacionalidad" />
+    </label>
+    <br>
+    <label
+      >Nivel:
+      <input [(ngModel)]="participante._nivel" placeholder="nivel" />
+    </label>
+    <br>
+    <label
+      >Nombre Caballo:
+      <input [(ngModel)]="participante._nomCaballo" placeholder="nomCaballo" />
+    </label>
+    <br>
+    <label
+      >Raza:
+      <input [(ngModel)]="participante._raza" placeholder="raza" />
+    </label>
+    <br>
+    <label
+      >Edad Caballo:
+      <input [(ngModel)]="participante._edadCaballo" placeholder="edadCaballo" />
+    </label>
+    <br>
+    <label
+      >Caballo Estabulado:
+      <input [(ngModel)]="participante._cabEstabulado" placeholder="cabEstabulado" type="checkbox"/>
+    </label>
+  </div>
+  <button (click)="goBack()">Atrás</button>
+  <button (click)="save()">Save</button>
