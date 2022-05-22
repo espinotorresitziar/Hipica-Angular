@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class NivelService {
   private apiURL = 'https://hipica-restapi.herokuapp.com/'
+  selectedNivel: any;
 
   constructor(private http: HttpClient) {}
 
@@ -16,7 +17,7 @@ export class NivelService {
     return this.http.get(urlget)
   }
 
-  getNivel(tipoNivel: string) {
+  getNivel(tipoNivel: string): Observable <any> {
     const url = `https://hipica-restapi.herokuapp.com/niveles/${tipoNivel}`
     return this.http.get(url)
   }

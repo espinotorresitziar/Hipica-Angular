@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Nivel } from '../models/niveles/nivel';
 import { NivelService } from '../nivel.service';
 
@@ -12,12 +13,13 @@ import { NivelService } from '../nivel.service';
 export class NivelComponent implements OnInit {
   crearNivel: FormGroup;
   submitted = false
-  idNivel: string | null
+  id: string | null
 
   constructor(
     private fb: FormBuilder,
     public nivelService: NivelService,
-    private activeRoute: ActivatedRoute) { 
+    private activeRoute: ActivatedRoute,
+    private toastr: ToastrService) { 
       this.crearNivel = this.fb.group(
         {
           id: ['', Validators.required],
@@ -27,7 +29,7 @@ export class NivelComponent implements OnInit {
           inscripcion: ['', Validators.required]
         }
       )
-      this.idNivel = this.activeRoute.snapshot.paramMap.get("id")
+      this.id = this.activeRoute.snapshot.paramMap.get("id")
     }
 
   ngOnInit(): void {
@@ -47,7 +49,7 @@ export class NivelComponent implements OnInit {
     }
     this.nivelService.addNivel(nivel).subscribe(
       () => {
-        console.log("Usuario guardado")
+        this.toastr.success('Nuevo nivel registrado con éxito', 'Nivel registrado')
       }
     ), (error: any) => {
       console.log(error)

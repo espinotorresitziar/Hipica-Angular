@@ -15,6 +15,10 @@ import { SaltoComponent } from './salto/salto.component';
 import { CrossComponent } from './cross/cross.component';
 import { NivelDetailComponent } from './nivel-detail/nivel-detail.component';
 import { ParticipanteDetailComponent } from './participante-detail/participante-detail.component';
+import { NivelService } from './nivel.service';
+import { ParticipanteService } from './participante.service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -36,9 +40,11 @@ import { ParticipanteDetailComponent } from './participante-detail/participante-
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [NivelService, ParticipanteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

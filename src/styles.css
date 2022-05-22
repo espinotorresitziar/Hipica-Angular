@@ -6,6 +6,9 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   */
+
+  @import '~ngx-toastr/toastr';
+
 h1 {
     color: rgb(250, 47, 47);
     font-family: Arial, Helvetica, sans-serif;
@@ -20,11 +23,17 @@ h1 {
   }
   body {
     margin: 2em;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./assets/fondo.jpg');
+    /*background-image: url('./assets/fondo.jpg');*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
   }
   body,
   input[text],
   button {
-    color: #333;
+    color: rgb(255, 255, 255);
     font-family: Cambria, Georgia;
   }
   a {

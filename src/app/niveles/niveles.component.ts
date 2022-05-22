@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Nivel } from '../models/niveles/nivel';
 import { NivelService } from '../nivel.service';
 
@@ -9,8 +10,12 @@ import { NivelService } from '../nivel.service';
 })
 export class NivelesComponent implements OnInit {
   niveles: Nivel[] = []
+  nivel: any
 
-  constructor(public nivelService: NivelService) { }
+  constructor(
+    public nivelService: NivelService,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
     this.getNiveles()
