@@ -3,7 +3,9 @@ import { Participante } from '../participantes/participante';
 
 export class Cross extends Participante {
     public _TLimiteC: number
-    public _cPenalizaciones: cPenalizaciones
+    public _rehusoC: number
+    public _caidaC: number
+    public _tiempoC: number
 
     constructor (
         id: number,
@@ -17,11 +19,9 @@ export class Cross extends Participante {
         edadCaballo: number,
         cabEstabulado: boolean,
         TLimiteC: number,
-        cPenalizaciones: {
-            rehusoC: number;
-            caidaC: number;
-            tiempoC: number;
-    }
+        rehusoC: number,
+        caidaC: number,
+        tiempoC: number,
     ) {
         super(
             id,
@@ -36,14 +36,47 @@ export class Cross extends Participante {
             cabEstabulado
         )
         this._TLimiteC = TLimiteC
-        this._cPenalizaciones = cPenalizaciones
+        this._rehusoC = rehusoC
+        this._caidaC = caidaC
+        this._tiempoC = tiempoC
     }
 
     get TLimiteC() {
         return this._TLimiteC
     }
 
-    get cPenalizaciones() {
-        return this._cPenalizaciones
+    get rehusoC() {
+        return this._rehusoC
+    }
+
+    get caidaC() {
+        return this._caidaC
+    }
+
+    get tiempoC() {
+        return this._tiempoC
+    }
+
+    tiempo(): any {
+        let tiem: number
+        if (this._TLimiteC < this._tiempoC) {
+            tiem = this._tiempoC * 1
+            return(tiem)
+        } else {
+            tiem = 0
+            return(tiem)
+        }
+    }
+
+    penalizaciones() {
+        let penal: number
+        penal = (this._rehusoC * 10) + (this._caidaC * 20) + (this.tiempo())
+        return (penal)
+    }
+
+    override puntosT(): any {
+        let puntosT: number
+        puntosT = 100 - this.penalizaciones()
+        return (puntosT)
     }
 }

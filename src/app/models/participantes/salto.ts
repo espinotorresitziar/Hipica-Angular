@@ -5,7 +5,10 @@ export class Salto extends Participante {
     public _totalSaltos: number
     public _maxAltura: number
     public _TLimiteS: number
-    public _sPenalizaciones: sPenalizaciones
+    public _derriboS: number
+    public _rehusoS: number
+    public _caidaS: number
+    public _tiempoS: number
 
     constructor (
         id: number,
@@ -21,12 +24,10 @@ export class Salto extends Participante {
         totalSaltos: number,
         maxAltura: number,
         TLimiteS: number,
-        sPenalizaciones: {
-            derriboS: number;
-            rehusoS: number;
-            caidaS: number;
-            tiempoS: number;
-    }
+        derriboS: number,
+        rehusoS: number,
+        caidaS: number,
+        tiempoS: number
     ) {
         super(
             id,
@@ -43,7 +44,10 @@ export class Salto extends Participante {
         this._totalSaltos = totalSaltos
         this._maxAltura = maxAltura
         this._TLimiteS = TLimiteS
-        this._sPenalizaciones = sPenalizaciones
+        this._derriboS = derriboS
+        this._rehusoS = rehusoS
+        this._caidaS = caidaS
+        this._tiempoS = tiempoS
     }
 
     get totalSaltos() {
@@ -58,7 +62,42 @@ export class Salto extends Participante {
         return this._TLimiteS
     }
 
-    get sPenalizaciones() {
-        return this._sPenalizaciones
+    get derriboS() {
+        return this._derriboS
+    }
+
+    get rehusoS() {
+        return this._rehusoS
+    }
+
+    get caidaS() {
+        return this._caidaS
+    }
+
+    get tiempoS() {
+        return this._tiempoS
+    }
+
+    Stiempo(): any {
+        let tiemp: number
+        if (this._TLimiteS < this._tiempoS) {
+            tiemp = this._tiempoS * 1
+            return(tiemp)
+        } else {
+            tiemp = 0
+            return(tiemp)
+        }
+    }
+
+    penalizaciones() {
+        let penal: number
+        penal = (this._derriboS * 4) + (this._rehusoS * 10) + (this._caidaS * 20) + (this.Stiempo())
+        return (penal)
+    }
+
+    override puntosT(): any {
+        let puntosT: number
+        puntosT = 100 - this.penalizaciones()
+        return (puntosT)
     }
 }

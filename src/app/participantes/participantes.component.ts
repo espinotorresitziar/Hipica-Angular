@@ -21,7 +21,7 @@ export class ParticipantesComponent implements OnInit {
     this.participanteService.getParticipantes().subscribe((parti) => (this.participantes = parti))
   }
 
-  elimParticipante(nombre: string) {
+  elimParticipante(nombre:string) {
     this.participanteService.elimParticipante(nombre).subscribe(() => {
       console.log('Eliminado')
     })

@@ -1,40 +1,26 @@
-<div class="container">
-  <div class="row">
-      <div class="col-lg-6 offset-lg-3">
-          <div class="card text-center">
-              <div class="card-body">
-                  <h3>{{"Editar nivel"}}</h3>
-                  <span *ngIf="submitted && editarNivel.invalid" class="badge badge-danger">Por favor, introduzca todos
-                      los campos</span>
-                  <form [formGroup]="editarNivel" (ngSubmit)="modificarNivel()">
-                      <div class="row">
-                          <input type="number" value ="nivel._id" formControlName="id" class="mt-2 form-control form-control-lg"
-                              placeholder="ID">
-                      </div>
-                      <div class="row">
-                          <input type="text" formControlName="tipoNivel" class="form-control form-control-lg mt-3"
-                              placeholder="Tipo Nivel">
-                      </div>
-                      <br>
-                      <div class="row">
-                          <p>Aficionado <input type="checkbox" formControlName="aficionado">
-                          </p>
-                      </div>
-                      <div class="row">
-                          <div class="col"><input type="number" formControlName="limiteEdad"
-                                  class="form-control form-control-lg mt-3" placeholder="Edad Límite"></div>
-                      </div>
-                      <div class="row">
-                          <div class="col"><input type="number" formControlName="inscripcion"
-                                  class="form-control form-control-lg mt-3" placeholder="Inscripción"></div>
-                      </div>
-                      <div class="mt-3">
-
-                          <button type="submit" class="btn btn-dark btn-lg">Editar</button>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
+<h2>{{ nivel._tipoNivel }} Detalles</h2>
+<br>
+  <div><span>ID:   </span>{{ nivel._id }}</div>
+  <div>
+    <span>Tipo Nivel:   </span>
+      {{nivel._tipoNivel}}
+    <br>
+    <label
+      >Aficionado:
+      <input [(ngModel)]="nivel._edad" placeholder="aficionado" type="checkbox"/>
+    </label>
+    <br>
+    <label
+      >Edad Límite:
+      <input [(ngModel)]="nivel._limiteEdad" placeholder="limiteEdad" type="number" />
+    </label>
+    <br>
+    <label
+      >Inscripción:
+      <input [(ngModel)]="nivel._inscripcion" placeholder="inscripcion" type="number"/>
+    </label>
+    <br>
+    <br>
   </div>
-</div>
+  <button (click)="goBack()">Atrás</button>
+  <button (click)="save()">Save</button>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ParticipanteService } from '../participante.service';
 
 @Component({
@@ -16,7 +17,9 @@ export class DomaComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public participanteService: ParticipanteService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private route: Router,
+    private toastr: ToastrService
   ) { 
     this.crearDoma = this.fb.group(
       {
@@ -78,6 +81,8 @@ export class DomaComponent implements OnInit {
     this.participanteService.addParticipante(doma).subscribe(
       () => {
         console.log("Participante de doma guardado")
+        this.toastr.success('Participante de Doma registrado con éxito', 'Participante de Doma registrado');
+        this.route.navigate(['/domadetail'])
       }
     ), (error: any) => {
       console.log(error)

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Nivel } from '../models/niveles/nivel';
 import { NivelService } from '../nivel.service';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nivel-detail',
@@ -11,26 +12,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./nivel-detail.component.css']
 })
 export class NivelDetailComponent implements OnInit {
-  nivel: Nivel | undefined
+  nivel: any
   submitted = false
-  editarNivel: FormGroup
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     public nivelService: NivelService,
-    private location: Location
-  ) {
-    this.editarNivel = this.fb.group(
-      {
-        id: ['', Validators.required],
-        tipoNivel: [this.route.snapshot.paramMap.get('tipoNivel'), Validators.required],
-        aficionado: ['', Validators.required],
-        limiteEdad: ['', Validators.required],
-        inscripcion: ['', Validators.required]
-      }
-    )
-   }
+    private location: Location,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.getNivel()
@@ -43,31 +35,27 @@ export class NivelDetailComponent implements OnInit {
       console.log(tipoNivel)
       console.log(this.route)
       console.log(nivel)
-    }
-                           
+    }             
     )
-    /*
-     const id = parseInt(this.route.snapshot.paramMap.get('_id')!)
-    this.nivelService.getNivel(id).subscribe(
-      niv => {
-        this.nivel = niv
-      }
-    )
-    */
-  }
-
-  modificarNivel() {
-    const nivel: any = {
-      id: this.editarNivel.value.id,
-      tipoNivel: this.editarNivel.value.tipoNivel,
-      aficionado: this.editarNivel.value.aficionado,
-      limiteEdad: this.editarNivel.value.limiteEdad,
-      inscripcion: this.editarNivel.value.inscripcion
-    }
-    this.nivelService.updateNivel(nivel)
   }
 
   goBack(): void {
     this.location.back()
   }
+
+  save(): void {
+    const doc: any = {
+      id: this.nivel._id,
+      tipoNivel: this.nivel._tipoNivel,
+      aficionado: this.nivel._aficionado,
+      limiteEdad: parseInt(this.nivel._limiteEdad),
+      inscripcion: parseInt(this.nivel._inscripcion)
+    }
+    this.nivelService.updateNivel(doc).subscribe(() => {
+      this.toastr.success('Nivel actualiado con éxito', 'Nivel actualizado')
+      this.router.navigate(['/niveles'])
+      this.goBack()
+    })
   }
+
+}

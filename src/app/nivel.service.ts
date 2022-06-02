@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NivelService {
-  private apiURL = 'https://hipica-restapi.herokuapp.com/'
+  private apiURL = 'https://restapi-hipica.herokuapp.com/'
   selectedNivel: any;
 
   constructor(private http: HttpClient) {}
@@ -18,7 +18,7 @@ export class NivelService {
   }
 
   getNivel(tipoNivel: string): Observable <any> {
-    const url = `https://hipica-restapi.herokuapp.com/niveles/${tipoNivel}`
+    const url = `https://restapi-hipica.herokuapp.com/niveles/${tipoNivel}`
     return this.http.get(url)
   }
 
@@ -30,5 +30,10 @@ export class NivelService {
   updateNivel(doc: Nivel) {
     const url = `${this.apiURL}modificarNivel/${doc.id}`
     return this.http.put(url, doc)
+  }
+
+  eliminarNivel(tipoNivel: string) {
+    const url = `${this.apiURL}eliminarNivel/${tipoNivel}`;
+    return this.http.delete(url)
   }
 }

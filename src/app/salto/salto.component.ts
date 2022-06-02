@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ParticipanteService } from '../participante.service';
 
 @Component({
@@ -16,7 +17,9 @@ export class SaltoComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public participanteService: ParticipanteService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private route: Router,
+    private toastr: ToastrService
   ) { 
     this.crearSalto = this.fb.group(
       {
@@ -72,6 +75,8 @@ export class SaltoComponent implements OnInit {
     this.participanteService.addParticipante(salto).subscribe(
       () => {
         console.log("Participante de Salto guardado")
+        this.toastr.success('Participante de Salto registrado con éxito', 'PArticipante de Salto registrado')
+        this.route.navigate(['/saltodetail'])
       }
     ), (error: any) => {
       console.log(error)

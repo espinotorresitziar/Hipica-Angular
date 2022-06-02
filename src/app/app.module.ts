@@ -17,6 +17,17 @@ import { NivelDetailComponent } from './nivel-detail/nivel-detail.component';
 import { ParticipanteDetailComponent } from './participante-detail/participante-detail.component';
 import { NivelService } from './nivel.service';
 import { ParticipanteService } from './participante.service';
+import { GraficaComponent } from './grafica/grafica.component';
+import { ChartModule } from 'angular-highcharts';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { DomapuntosComponent } from './domapuntos/domapuntos.component';
+import { CrossdetailComponent } from './crossdetail/crossdetail.component';
+import { CrosspuntosComponent } from './crosspuntos/crosspuntos.component';
+import { SaltodetailComponent } from './saltodetail/saltodetail.component';
+import { SaltopuntosComponent } from './saltopuntos/saltopuntos.component';
+import { CrossgraficaComponent } from './crossgrafica/crossgrafica.component';
+import { ClasificacionComponent } from './clasificacion/clasificacion.component';
+import { SaltograficaComponent } from './saltografica/saltografica.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -33,7 +44,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SaltoComponent,
     CrossComponent,
     NivelDetailComponent,
-    ParticipanteDetailComponent
+    ParticipanteDetailComponent,
+    GraficaComponent,
+    DomapuntosComponent,
+    CrossdetailComponent,
+    CrosspuntosComponent,
+    SaltodetailComponent,
+    SaltopuntosComponent,
+    CrossgraficaComponent,
+    ClasificacionComponent,
+    SaltograficaComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +61,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    ChartModule,
+    HighchartsChartModule,
+    ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
   ],
   providers: [NivelService, ParticipanteService],
   bootstrap: [AppComponent]

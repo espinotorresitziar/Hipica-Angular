@@ -1,0 +1,48 @@
+<br>
+
+<div class="container mt-4">
+	<div class="card">
+	  <div class="card-body">
+		<span class="h3">Participantes Cross</span>
+		
+		<table class="table table-striped mt-5">
+		  <thead>
+			<tr>
+				<th>ID</th>
+		        <th>NOMBRE</th>
+		        <th>EDAD</th>
+		        <th>NACIONALIDAD</th>
+		        <th>NIVEL</th>
+				<th>MODALIDAD</th>
+    	        <th>NOM.CABALLO</th>
+    	        <th>RAZA</th>
+    	        <th>ED.CABALLO</th>
+    	        <th>CAB.ESTABULADO</th>
+				<th>T.LIMITE</th>
+			    <th></th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let participante of cross">
+                <td>{{participante._id}}</td>
+                <td>{{participante._nombre}}</td>
+                <td>{{participante._edad}}</td>
+                <td>{{participante._nacionalidad}}</td>
+                <td>{{participante._nivel}}</td>
+				<td>{{participante._modalidad}}</td>
+                <td>{{participante._nomCaballo}}</td>
+                <td>{{participante._raza}}</td>
+                <td>{{participante._edadCaballo}}</td>
+                <td>{{participante._cabEstabulado}}</td>
+				<td>{{participante._TLimiteC}}</td>
+			  <td>
+				<button class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/cross', participante._nombre]">Puntuación</button>
+				
+				<button (click)="elimParticipante(participante._nombre)" class="fas fa-trash-alt fa-lg text-danger">Eliminar</button>
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </div>

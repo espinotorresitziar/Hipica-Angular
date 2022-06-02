@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ParticipanteService } from '../participante.service';
 
 @Component({
@@ -16,7 +17,9 @@ export class CrossComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public participanteService: ParticipanteService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private route: Router,
+    private toastr: ToastrService
   ) {
     this.crearCross = this.fb.group(
       {
@@ -66,6 +69,8 @@ export class CrossComponent implements OnInit {
     this.participanteService.addParticipante(cross).subscribe(
       () => {
         console.log("Participante de Cross guardado")
+        this.toastr.success('Participante de Cross registrado con éxito', 'Participante de Cross registrado');
+        this.route.navigate(['/crossdetail'])
       }
     ), (error: any) => {
       console.log(error)

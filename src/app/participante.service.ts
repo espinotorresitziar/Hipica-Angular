@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ParticipanteService {
-  private apiURL = 'https://hipica-restapi.herokuapp.com/';
+  private apiURL = 'https://restapi-hipica.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 
@@ -16,9 +16,24 @@ export class ParticipanteService {
     return this.http.get(urlget);
   }
 
-  getParticipante(_nombre: string) {
-    const url = `https://hipica-restapi.herokuapp.com/participantes/${_nombre}`;
+  getParticipante(nombre: string): Observable <any> {
+    const url = `https://restapi-hipica.herokuapp.com/participante/${nombre}`;
     return this.http.get(url);
+  }
+
+  getDoma(): Observable<any> {
+    const urlget = `${this.apiURL}doma`
+    return this.http.get(urlget)
+  }
+
+  getSalto(): Observable<any> {
+    const urlget = `${this.apiURL}salto`
+    return this.http.get(urlget)
+  }
+
+  getCross(): Observable<any> {
+    const urlget = `${this.apiURL}cross`
+    return this.http.get(urlget)
   }
 
   addParticipante(doc: Participante) {
@@ -31,7 +46,7 @@ export class ParticipanteService {
     return this.http.put(url, doc);
   }
 
-  elimParticipante(nombre: string): Observable<any> {
+  elimParticipante(nombre: string) {
     const url = `${this.apiURL}eliminarPartici/${nombre}`;
     return this.http.delete(url);
   }

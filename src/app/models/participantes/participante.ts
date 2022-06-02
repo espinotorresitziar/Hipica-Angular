@@ -61,4 +61,10 @@ export class Participante {
     get cabEstabulado() {
         return this._cabEstabulado
     }
+
+    puntosT() {
+        let puntosT: number
+        puntosT = 0
+        return puntosT
+    }
 }

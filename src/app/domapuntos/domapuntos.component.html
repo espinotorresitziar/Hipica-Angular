@@ -1,0 +1,25 @@
+<br><br><br>
+
+<h2>Puntuación {{ puntos._nombre }}</h2>
+<br>
+  <div><span>Parada:   </span>  {{ puntos._parada }}</div>
+  <div>
+    <span>Paso:   </span>  {{ puntos._paso }}
+    <br>
+    <span>Trote:   </span>  {{ puntos._trote }}
+    <br>
+    <span>Galope:   </span>  {{ puntos._galope }}
+    <br>
+    <span>Paso Atrás:   </span>  {{ puntos._pasoAtras }}
+    <br>
+    <span>Transiciones:   </span>  {{ puntos._transiciones }}
+    <br>
+    <span>Cambio Dirección:   </span>  {{ puntos._cambioDirec }}
+    <br>
+    <span>Figuras:   </span>  {{ puntos._figuras }}
+    <br>
+    <span>Movimiento Lateral:   </span>  {{ puntos._movLateral }}
+	<br>
+	<span>Piruetas:   </span>  {{ puntos._piruetas }}
+  </div>
+  <button (click)="goBack()">Atrás</button>

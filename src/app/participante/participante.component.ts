@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ParticipanteService } from '../participante.service';
 
 @Component({
@@ -16,7 +17,9 @@ export class ParticipanteComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public participanteService: ParticipanteService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private route: Router,
+    private toastr: ToastrService
   ) { 
     this.crearParticipante = this.fb.group(
       {
@@ -58,6 +61,8 @@ export class ParticipanteComponent implements OnInit {
     this.participanteService.addParticipante(participante).subscribe(
       () => {
         console.log("Participante guardado")
+        this.toastr.success('Nuevo participante registrado con éxito', 'Participante registrado')
+        this.route.navigate(['/participantes'])
       }
     ), (error: any) => {
       console.log(error)

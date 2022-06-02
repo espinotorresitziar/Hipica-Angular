@@ -1,24 +1,26 @@
-<h2>{{ participante.nombre | uppercase }} Detalles</h2>
-  <div><span>ID: </span>{{ participante._id }}</div>
+<br><br>
+
+<h2>{{ participante._nombre }} Detalles</h2>
+<br>
+  <div><span>ID:   </span>{{ participante._id }}</div>
   <div>
-    <label
-      >Nombre:
-      <input [(ngModel)]="participante._nombre" placeholder="nombre" />
-    </label>
+    <span>Nombre:   </span>
+     {{participante._nombre}}
     <br>
-    <label
-      >Edad:
-      <input [(ngModel)]="participante._edad" placeholder="edad" type="number" />
-    </label>
+    <span>Edad:   </span>
+      {{participante._edad}}
     <br>
-    <label
-      >Nacionalidad:
-      <input [(ngModel)]="participante._nacionalidad" placeholder="nacionalidad" />
-    </label>
+    <span>Nacionalidad:   </span>
+      {{participante._nacionalidad}}
     <br>
     <label
       >Nivel:
       <input [(ngModel)]="participante._nivel" placeholder="nivel" />
+    </label>
+    <br>
+    <label>
+      Modalidad:
+      <input [(ngModel)]="participante._modalidad" placeholder="modalidad"/>
     </label>
     <br>
     <label
@@ -41,5 +43,6 @@
       <input [(ngModel)]="participante._cabEstabulado" placeholder="cabEstabulado" type="checkbox"/>
     </label>
   </div>
+  <br>
   <button (click)="goBack()">Atrás</button>
   <button (click)="save()">Save</button>
