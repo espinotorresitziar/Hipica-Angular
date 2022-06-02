@@ -9,13 +9,26 @@ button {
     color: rgb(0, 0, 0);
 }
 
-h2 {
-    font-size: 35px;
+span {
+    width: auto;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+label {
+    width: auto;
+    font-size: 20px;
     color: rgb(255, 255, 255);
 }
 
 div {
     width: auto;
-    font-size: 20px;
+    font-size: 25px;
+    color: rgb(166, 255, 0);
+}
+
+h2 {
+    font-size: 35px;
     color: rgb(255, 255, 255);
 }
+
+
