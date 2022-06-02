@@ -21,7 +21,6 @@
 				<th>SALT.TOTALES</th>
 				<th>MAX.ALTURA</th>
 				<th>T.LIMITE</th>
-			    <th></th>
 			</tr>
 		  </thead>
 		  <tbody>
@@ -41,7 +40,7 @@
 				<td>{{participante._TLimiteS}}</td>
 			  <td>
 				<button class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/salto', participante._nombre]">Puntuación</button>
-				
+				<br>
 				<button (click)="elimParticipante(participante._nombre)" class="fas fa-trash-alt fa-lg text-danger">Eliminar</button>
 			  </td>
 			</tr>

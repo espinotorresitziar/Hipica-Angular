@@ -27,7 +27,9 @@ export class NivelesComponent implements OnInit {
   }
 
   eliminarNivel(tipoNivel: string) {
-    this.nivelService
+    this.nivelService.eliminarNivel(tipoNivel).subscribe(() => {
+      console.log('Eliminado')
+    })
   }
 
 }
